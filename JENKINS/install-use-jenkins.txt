@@ -1,0 +1,51 @@
+install jenkins
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install openjdk-8-jdk -y
+sudo apt-get install jenkins -y
+sudo systemctl status jenkins
+java -version  
+
+#install docker
+sudo apt-get install docker.io -y
+#solve error docker
+sudo chmod 666 /var/run/docker.sock
+sudo su $USER  -c groups
+sudo chgrp docker /lib/systemd/system/docker.socket
+sudo chmod g+w /lib/systemd/system/docker.socket
+sudo chgrp $USER /lib/systemd/system/docker.socket
+sudo chmod g+w /lib/systemd/system/docker.socket
+
+#add jenkins to user docker
+sudo groupadd docker
+sudo usermod -aG docker jenkins
+sudo usermod -aG docker ubuntu
+cat /etc/group | grep docker
+sudo reboot
+
+jangan lupa docker login di user jenkin (dengan cara sudu su - jenkins)
+
+use jenkins (harus punya code + Dockerfile + Jenkinsfile in repo )
+localhost(or ec2 dns):8080
+if create freestly project
+sediakan repo app anda exmp: https://github.com/Aliang000/landing-page-docker
+isikan url repo anda di Source code management pilih git ( jika repo anda private tambahkn ada credensial )
+branch to build ( pilih anda mau mengambil branch yg mana exmp: development/staging/production )
+build triggernya by apa ( disini kita mengunakan by  Github hook for GITcm polling)
+setting github di repo anda ( dengan cara klik setting pilih webhook dan isi di playload url) 
+[localhost jenkins yang ada buat dan /github-webhook) exmp: http://54.169.208.227:8080/github-webhook/
+add build step ( execute shell ) exmp :
+docker build -t aly666/landing-page:0.0.$BUILD_NUMBER-dev . (automatic tagging)
+docker push aly666/landing-page:0.0.$BUILD_NUMBER-dev 
+save ( dan coba build )
+
+install plugin greenball & slack notification (restart)
+
+if multibrach pipeline ( mengunakan Jenkinsfile in you brach kalau tidak ada dibuat dlu harus ada di smua branch ) contoh Jenkinfile ada di luar 
+setting Jenkinsfile anda ( atur post anda by apa matter/slack, dll )
+sediakan repo app anda exmp: https://github.com/Aliang000/landing-page-docker
+isikan url repo anda di Branch Source pilih github ( jika repo anda private tambahkn ada credensial )
+save
+jika gagal lihat nama mesin anda di manage jenkins node jika tidak ada nama  isijan any di jenkinsfile
+jika mengunakan notif tinggal di tambah configurasinya di ( contoh disini mengunakan slack ) contoh gambar diluar

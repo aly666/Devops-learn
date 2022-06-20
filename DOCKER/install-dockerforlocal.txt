@@ -1,0 +1,30 @@
+intall kubectl local
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.2/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+install awscli local
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+install docker local
+curl -fsSL get.docker.com -o get-docker.sh
+
+chmod +x get-docker.sh
+
+sh get-docker.sh
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
+
+base=https://github.com/docker/machine/releases/download/v0.14.0
+
+curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine
+
+sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+
+

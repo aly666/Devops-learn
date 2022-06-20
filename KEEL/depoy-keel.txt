@@ -1,0 +1,14 @@
+deploy keel 
+1. Login kesini https://my.webhookrelay.com/login .
+2. Pergi ke Access Token > Create token. Simpan KEY dan SECRET.
+3. Kemudian lanjut ke Bidirectional Tunnels > Create tunnel.
+– Name : keel
+– Region : eu
+– Destination : localhost:9300
+– authentication : none
+jika anda tidak mengunakn bot hapus aja di file kee.yaml nya
+contoh gambar ada di luar
+setelah semuanya berjalan deploy file yaml aplikasi anda untuk pertama kali dan lalu di coba mengunakan jenkins  
+hingga menjadi CI/CD (jangan lupa tambah script keelnya di yaml anda )
+contoh gambar ada di luar
+

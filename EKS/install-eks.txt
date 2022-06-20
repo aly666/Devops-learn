@@ -1,0 +1,25 @@
+install kubectl :
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.2/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+install eksctl :
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+eksctl version
+
+make cluster
+eksctl create cluster \
+--name aly-cluster \
+--version 1.20 \
+--region ap-southeast-1 \
+--nodegroup-name aly-nodes \
+--node-type t2.micro \
+--nodes 4
+
+fix error config (in .kube)
+aws eks update-kubeconfig --name namaclusteryou --region namaregionyou
+
+delete cluster
+eksctl delete cluster --name aly-cluster --region ap-southeast-1
+
