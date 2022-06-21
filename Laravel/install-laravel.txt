@@ -1,0 +1,23 @@
+install database untuk laravelnya 
+sudo apt-get install -y php-mysql mysql-server
+create user 'aly'@'localhost' identified by 'aly';
+grant all privileges on *.* to 'aly'@'localhost';
+create database laravel; (nama dan database yang akan anda gunakan di .env laravel)
+
+
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+sudo apt-get install php7.3
+
+sudo apt install php7.3-cli php7.3-fpm php7.3-json php7.3-pdo php7.3-mysql php7.3-zip php7.3-gd  php7.3-mbstring php7.3-curl php7.3-xml php7.3-bcmath php7.3-json
+
+
+sudo apt-get install composer
+
+
+git clone https://github.com/savanihd/Laravel-8-CRUD.git
+cp .env-example .env
+nano .env ( rubah dbhost,name,pass)
+composer install ( didalam file yg tlah anda git clone )
+php artisan migrate (didalam file yg tlah anda git clone )
+php artisan serve 
