@@ -21,3 +21,7 @@ nano .env ( rubah dbhost,name,pass)
 composer install ( didalam file yg tlah anda git clone )
 php artisan migrate (didalam file yg tlah anda git clone )
 php artisan serve 
+
+untuk k8s di .env 
+DB_HOST = nama svc di k8s 
+ada contoh gambar di luar
