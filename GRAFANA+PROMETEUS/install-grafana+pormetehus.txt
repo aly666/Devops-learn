@@ -1,0 +1,18 @@
+==Monitoring with Prometheus & Grafana==
+
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+helm version
+
+helm repo add stable https://charts.helm.sh/stable
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm search repo prometheus-community
+helm install stable prometheus-community/kube-prometheus-stack
+setelah jalan 
+masukan ini 
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+untuk prometehues tambahkan:9090 di belakang url
+username = admin
+pass     = prom-operator
+export EDITOR=nano

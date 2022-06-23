@@ -15,7 +15,7 @@ eksctl create cluster \
 --region ap-southeast-1 \
 --nodegroup-name aly-nodes \
 --node-type t2.micro \
---nodes 4
+--nodes 10
 
 fix error config (in .kube)
 aws eks update-kubeconfig --name namaclusteryou --region namaregionyou
