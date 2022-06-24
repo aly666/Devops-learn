@@ -3,12 +3,22 @@
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
-helm version
+helm version ( jika belum install helm )
 
 helm repo add stable https://charts.helm.sh/stable
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
 helm search repo prometheus-community
-helm install stable prometheus-community/kube-prometheus-stack
+helm install stable prometheus-community/kube-prometheus-stack (--namespace untuk menginstall di ns kalian buat )
+helm install loki loki/loki --namespace logging
+
+curl https://raw.githubusercontent.com/grafana/loki/master/production/helm/promtail/values.yaml > values.yaml
+
+edit di serviceName = loki
+
+helm install promtail --namespace logging loki/promtail -f values.yaml
+
 setelah jalan 
 masukan ini 
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
@@ -16,5 +26,3 @@ untuk prometehues tambahkan:9090 di belakang url
 username = admin
 pass     = prom-operator
 export EDITOR=nano
-kubectl edit svc stable-kube-prometheus-sta-prometheus
-kubectl edit svc stable-grafana 

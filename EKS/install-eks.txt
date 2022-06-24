@@ -17,6 +17,14 @@ eksctl create cluster \
 --node-type t2.micro \
 --nodes 10
 
+eksctl create cluster \
+--name aly-cluster \
+--version 1.20 \
+--region ap-southeast-1 \
+--nodegroup-name aly-nodes \
+--node-type t2.medium \
+--nodes 5
+
 fix error config (in .kube)
 aws eks update-kubeconfig --name namaclusteryou --region namaregionyou
 
