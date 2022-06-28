@@ -1,0 +1,9 @@
+1. install sebuah ec2 & install utility yg akan digunakan (awscli,docker,terraform,ekscl,kubuctl,dll)
+2. install sebuah EKS (siap 15m ) selagi menunggu EKS siapkan jenkins mengunakan terraform
+3. install ec2 untuk jenkins (terraform init,plan,apply,destroy) untuk apply tambahkan --auto approve dan install awscli untuk nanti ecrnya
+4. buatah sebuah rds di aws service tunggu sampai endpointnya keluar
+5. buat ECR untuk ke 4 aplikasi tersebut fb,landing,wp,laravel dan push dari docker hub / github (cloning github & pull untuk wp karena tidak ada 
+   Dockerfilenya ke ecr di ec2 jenkins user jenkins dan login docker anda
+6. setting Jenkinsfile anda dan webhook git
+7. d
+

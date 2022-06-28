@@ -47,5 +47,5 @@ setting Jenkinsfile anda ( atur post anda by apa matter/slack, dll )
 sediakan repo app anda exmp: https://github.com/Aliang000/landing-page-docker
 isikan url repo anda di Branch Source pilih github ( jika repo anda private tambahkn ada credensial )
 save
-jika gagal lihat nama mesin anda di manage jenkins node jika tidak ada nama  isijan any di jenkinsfile
+jika gagal lihat nama mesin anda di manage jenkins node jika tidak ada nama  isikan any di jenkinsfile
 jika mengunakan notif tinggal di tambah configurasinya di ( contoh disini mengunakan slack ) contoh gambar diluar

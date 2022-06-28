@@ -2,7 +2,7 @@ install awscli :
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
-chmod 770 /home/user/.aws/
+sudo chmod 770 /usr/local/bin/aws
 if not running
 mv .aws /usr/bin
 aws configure
