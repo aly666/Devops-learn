@@ -27,4 +27,17 @@ curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine
 
 sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 
-
+  docker login = login ke akun hub.docker.com --> registry
+  docker pull   = download image yg ada di registry ke local/host
+  docker build = untuk membuild/membuat Dockerfile menjadi images
+  docker push  = upload image kita yg ada dilocal ke registry
+  docker run    = menjalankan image menjadi container (jika image nya ada dilocal langsung run , jika tidak dia pull dulu)
+  docker ps     = perintah untuk melihat container yg berjalan
+  docker stop = stop container yg berjalan
+  docker start = start container
+  docker rm   = menghapus container
+  docker rmi = remove image
+  docker logs = menampilkan dari aplikasi/container
+  docker exec =  masuk ke dalam container
+  docker system prune -a  = magic button! remove container world
+         docker taging = untuk update taging pada image
